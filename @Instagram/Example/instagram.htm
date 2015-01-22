@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery Instagram JSON call</title>
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script>
+        var insta_access_token = "1611792815.1677ed0.1198aafcf7e3438dbbc8eeeaf02cd9b7";
+        var fb_access_token = "CAAJtSeb4BQABAOjxAbJ5YKzKMJo7tlMAqQvqGWgAB6R1URPFIVQarSqDbaMzThC4W6qxcbBdmQS8sr8CA6Bn8PR8JXzZBDOdDLZAmgLJuX6U9UPrj2Tj1ZCgfFXUfm7IXVWmZC1MlbwMmWydHTTZApk9jZAj6i2EKCUzAjbjD11EX8czMhzLAZCZCE9TQAfhFGOD3JkOf64rZBU7PVNNdYDMh&expires=5184000";
+        $(function () {
+            $('#search').on('submit', function (ev) {
+                $("#images").empty();
+                var locationArr = [];
+                var tag = $('#tag').val();
+                var lat = $('#lat').val();
+                var lon = $('#lon').val();
+                if (tag.length) {
+                    $.ajax({
+                        type: "GET",
+                        dataType: "jsonp",
+                        cache: false,
+                        url: "https://api.instagram.com/v1/locations/search?lat=" + lat + "&lng=" + lon + "&distance=5000&access_token=" + insta_access_token,
+                        success: function (location_data) {
+                            var locationData = location_data.data;
+                            for (var key in locationData) {
+                                $.ajax({
+                                    type: "GET",
+                                    dataType: "jsonp",
+                                    cache: false,
+                                    url: "https://api.instagram.com/v1/locations/" + locationData[key].id + "/media/recent?access_token=" + insta_access_token,
+                                    success: function (insta_data) {
+                                        displayImages(insta_data, tag);
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+                ev.preventDefault();
+            });
+            function displayImages(instagram_data, tag) {
+                var target = $("#images");
+                if (instagram_data.meta.code == 200) {
+                    var photos = instagram_data.data;
+                    if (photos.length > 0) {
+                        for (var key in photos) {
+                            var photo = photos[key];
+                            if ($.inArray(tag.toString(), photo.tags) != -1) {
+                                target.append('<a title="' + photo.tags[0] + '" href="' + photo.link + '"><img src="' + photo.images.low_resolution.url + '"/></a>');
+                            }
+                            else {
+                                //target.html("nothing found");
+                            }
+                        }
+                    } else {
+                        //target.html("nothing found");
+                    }
+                } else {
+                    var error = instagram_data.meta.error_message;
+                    target.html(error);
+                }
+            }
+        });
+        
+    </script>
+    <style>
+        
+#images img {
+	border: 			none;
+	padding: 			0 5px 5px 0;
+	width: 				19%;
+	opacity: 			0.6;
+	-moz-opacity: 		0.6;	
+	display: block;
+    float: left;
+}
+#images img:hover {
+	opacity: 			1;
+	-moz-opacity: 		1;
+}
+
+body,td,th {
+	font-family: 		Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size: 			12px;
+	color: 				#CCC;
+}
+body {
+	background-color: 	#000;
+}
+a:link {
+	color: 				#CFC;
+	text-decoration: 	none;
+}
+a:visited {
+	text-decoration: 	none;
+	color: 				#CFC;
+}
+a:hover {
+	text-decoration: 	underline;
+	color: 				#FFF;
+}
+a:active {
+	text-decoration: 	none;
+	color: 				#FFF;
+}
+    </style>
+</head>
+<body>
+<h1>Instagram API</h1>
+<form id="search">
+    <p>
+        <label>Hashtag:</label>
+        <input type="text" id="tag" name="tag"required pattern="[a-zA-Z0-9]+" value="food"/>
+        <label>Latitude:</label>
+        <input type="text" id="lat" name="lat" value="32.715754"/>
+        <label>Longitude:</label>
+        <input type="text" id="lon" name="lon" value="-117.161093"/>
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<div id="images"></div>
+</body>
+</html>

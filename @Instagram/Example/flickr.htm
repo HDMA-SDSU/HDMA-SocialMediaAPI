@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>jQuery Flickr JSON call</title>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script>
+    var api_key = "56f64a8239847ea11ac70397cfab1bf6";
+    $(function () {
+        $('#searchF').on('submit', function (ev) {
+            var tag = $("#tag").val();
+            var lat = $("#lat").val();
+            var lon = $("#lon").val();
+            if (tag.length && lat.length && lon.length) {
+                $.ajax({
+                    type: "GET",
+                    dataType: "jsonp",
+                    cache: false,
+                    url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + api_key + '&tags=' + tag + "&lat=" + lat + "&lon=" + lon + '&radius=15&per_page=50&format=json&jsoncallback=?',
+                    success: function (data) {
+                        displayImages(data);
+                    }
+                });
+            }
+            ev.preventDefault();
+        });
+        function displayImages(data) {
+            var htmlString = "";
+            var photoSite = "https://www.flickr.com/photos/";
+            $.each(data.photos.photo, function (i, item) {
+                htmlString += '<a href="' + photoSite + item.owner + "/" + item.id + '" target="_blank">';
+                htmlString += '<img src="' + "https://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg" + '" alt="' + item.title + '" title="' + item.title + '"/>';
+                htmlString += '</a>';
+            });
+            $('#images').html(htmlString);
+        };
+    });
+</script>
+<style>
+#images img {
+	border: 			none;
+	padding: 			0 5px 5px 0;
+	width: 				19%;
+	opacity: 			0.6;
+	-moz-opacity: 		0.6;	
+	display: block;
+    float: left;
+}
+#images img:hover {
+	opacity: 			1;
+	-moz-opacity: 		1;
+}
+
+body,td,th {
+	font-family: 		Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size: 			12px;
+	color: 				#CCC;
+}
+body {
+	background-color: 	#000;
+}
+a:link {
+	color: 				#CFC;
+	text-decoration: 	none;
+}
+a:visited {
+	text-decoration: 	none;
+	color: 				#CFC;
+}
+a:hover {
+	text-decoration: 	underline;
+	color: 				#FFF;
+}
+a:active {
+	text-decoration: 	none;
+	color: 				#FFF;
+}
+</style>
+</head>
+<body>
+<h1>FLICKR API</h1>
+<form id="searchF">
+    <p>
+        <label>Hashtag:</label>
+        <input type="text" id="tag" name="tag"required pattern="[a-zA-Z0-9]+" value="restaurant"/>
+        <label>Latitude:</label>
+        <input type="text" id="lat" name="lat" value="32.726"/>
+        <label>Longitude:</label>
+        <input type="text" id="lon" name="lon" value="-117.161"/>
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<div id="images"></div>
+</body></html>
