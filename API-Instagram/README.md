@@ -6,15 +6,15 @@ This technical note introduces how to retrieve food photos at Downtown San Diego
 
 Instagram is an online mobile photo-sharing, video-sharing and social networking service that enables its users to take pictures and videos, and share them on a variety of social networking platforms, such as Facebook, Twitter, Tumblr and Flickr. A distinctive feature is that it confines photos to a square shape, similar to Kodak Instamatic and Polaroid images, in contrast to the 4:3 aspect ratio typically used by mobile device cameras. Users can also apply digital filters to their images. ( [http://en.wikipedia.org/wiki/Instagram](http://en.wikipedia.org/wiki/Instagram))
 
-1. What is Instagram API?
+2. What is Instagram API?
 
 Registered users can search photos and related information according to different arguments by using Instagram API.
 
-2. Does the API need a key?
+3. Does the API need a key?
 
 Yes, before utilizing Instagram API, developers need to get an access key for calling methods of Instagram API. Go here: [http://instagram.com/developer/authentication/](http://instagram.com/developer/authentication/).
 
-3. How to find photos for specific geographic areas? (e.g. Downtown San Diego)
+4. How to find photos for specific geographic areas? (e.g. Downtown San Diego)
 
 Go to "Location Endpoints" on Instagram website: [http://instagram.com/developer/endpoints/locations/](http://instagram.com/developer/endpoints/locations/).
 
