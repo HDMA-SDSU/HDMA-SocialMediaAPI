@@ -1,8 +1,9 @@
 # HDMA-SocialMediaAPI
 Social Media API
 This technical note introduces how to retrieve food photos at Downtown San Diego from Instagram by using Instagram API. This notes searched photos by setting location ids, based on longitude and latitude, and radius arguments. 
-1.	What is Instagram?
 
+1.	What is Instagram?
+2.	
 Instagram is an online mobile photo-sharing, video-sharing and social networking service that enables its users to take pictures and videos, and share them on a variety of social networking platforms, such as Facebook, Twitter, Tumblr and Flickr. A distinctive feature is that it confines photos to a square shape, similar to Kodak Instamatic and Polaroid images, in contrast to the 4:3 aspect ratio typically used by mobile device cameras. Users can also apply digital filters to their images. (http://en.wikipedia.org/wiki/Instagram)
 
 2.	What is Instagram API?
