@@ -1,7 +1,7 @@
 # HDMA-SocialMediaAPI
 Social Media API
 
-This technical note introduces how to retrieve food photos at Downtown San Diego from Instagram by using Instagram API. This note searched photos by setting location ids, based on longitude and latitude, and radius arguments.
+This technical note introduces how to retrieve food photos at Downtown San Diego from Instagram by using Instagram API. This notes searched photos by setting location ids, based on longitude and latitude, and radius arguments.
 
 - What is Instagram?
 
