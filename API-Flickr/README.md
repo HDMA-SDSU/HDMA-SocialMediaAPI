@@ -21,14 +21,16 @@ Radius: A valid radius used for geo queries, greater than zero and less than 20 
 Other parameters: https://www.flickr.com/services/api/flickr.photos.search.html
 #### 5.	The following is an example of photos with “food” tag at Downtown San Diego (latitude: 32.715754; longitude: -117.161093) with 5 kilometers radius.
 
-'Photo Data:
+```
+Photo Data:
 "photo": [
       { "id": "16002140699", "owner": "31911001@N00", "secret": "262c519825", "server": "8649", "farm": 9, "title": "Chilaquiles WTF", "ispublic": 1, "isfriend": 0, "isfamily": 0 },
       { "id": "15241138255", "owner": "15474023@N03", "secret": "960b0d8a36", "server": "5552", "farm": 6, "title": "IMG_3408", "ispublic": 1, "isfriend": 0, "isfamily": 0 },
       { "id": "15128197056", "owner": "65172614@N06", "secret": "f6d8f31795", "server": "3850", "farm": 4, "title": "Croque monsieur", "ispublic": 1, "isfriend": 0, "isfamily": 0 },
       { "id": "14863357020", "owner": "34128007@N04", "secret": "ba4e3d20d1", "server": "3879", "farm": 4, "title": "Fruit Tart", "ispublic": 1, "isfriend": 0, "isfamily": 0 },
       { "id": "14813732619", "owner": "7183730@N06", "secret": "80a732dac5", "server": "5552", "farm": 6, "title": "Scallop omelette", "ispublic": 1, "isfriend": 0, "isfamily": 0 },
-      { "id": "14813823548", "owner": "7183730@N06", "secret": "984a519a95", "server": "3871", "farm": 4, "title": "", "ispublic": 1, "isfriend": 0, "isfamily": 0 }'
+      { "id": "14813823548", "owner": "7183730@N06", "secret": "984a519a95", "server": "3871", "farm": 4, "title": "", "ispublic": 1, "isfriend": 0, "isfamily": 0 }
+```
 
 Flickr photo format: https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
