@@ -1,3 +1,4 @@
+![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
 ### Abstract
 This technical note introduces how to retrieve food photos at Downtown San Diego from Flickr by using Flickr API. This notes searched photos by setting longitude, latitude and radius arguments. 
 
