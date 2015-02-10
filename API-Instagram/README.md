@@ -1,5 +1,5 @@
 ![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
-##Retrieve Photo Data from Flickr Using Flickr API - NIH Proposal for Food Environment
+##Retrieve Photo Data from Instagram Using Instagram API - NIH Proposal for Food Environment
 ######*Project conducted by*: San Diego State University
 ######*Report prepared by*: Yi-ting Chuang (Department of Geography, San Diego State University)
 #### Abstract
