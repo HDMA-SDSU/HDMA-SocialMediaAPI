@@ -1,22 +1,23 @@
 ![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
-### Abstract
+###Retrieve Photo Data from Flickr Using Flickr API
+#### Abstract
 This technical note introduces how to retrieve food photos at Downtown San Diego from Flickr by using Flickr API. This notes searched photos by setting longitude, latitude and radius arguments. 
 
  
-### 1.	What is Flickr?
+#### 1.	What is Flickr?
 Flickr is an image hosting and video hosting website, and web services. Users can not only share and embed personal photographs but also effectively attend an online community. The service is widely used by photo researchers and by bloggers to host images that they embed in blogs and social media. (http://en.wikipedia.org/wiki/Flickr)
-### 2.	What is Flickr API?
+#### 2.	What is Flickr API?
 Registered users can search photos and related information according to different arguments by using Flickr API.
-### 3.	Does the API need a key?
+#### 3.	Does the API need a key?
 Yes, before utilizing Flickr API, developers need to get an access key and secret code for calling methods of Flickr API. Go here: https://www.youtube.com/watch?v=Lq1XRx6dsDU.
-### 4.	How to find photos for specific geographic areas? (e.g. Downtown San Diego)
+#### 4.	How to find photos for specific geographic areas? (e.g. Downtown San Diego)
 flickr.photos.search() method allows users to search photos taken at specific locations. Parameters in this method include: 
 Tags: A comma-delimited list of tags. Photos with one or more of the tags listed will be returned. You can exclude results that match a term by prepending it with a - character. (e.g. Food)
 Lon: A valid longitude, in decimal format, for doing radial geo queries. (e.g. -117.161)
 Lat: A valid latitude, in decimal format, for doing radial geo queries. (e.g. 32.726)
 Radius: A valid radius used for geo queries, greater than zero and less than 20 miles (or 32 kilometers), for use with point-based geo queries. The default value is 5 (km).
 Other parameters: https://www.flickr.com/services/api/flickr.photos.search.html
-### 5.	The following is an example of photos with “food” tag at Downtown San Diego (latitude: 32.715754; longitude: -117.161093) with 5 kilometers radius.
+#### 5.	The following is an example of photos with “food” tag at Downtown San Diego (latitude: 32.715754; longitude: -117.161093) with 5 kilometers radius.
 
 Photo Data:
 "photo": [
