@@ -1,6 +1,8 @@
-# HDMA-SocialMediaAPI
-Social Media API
-
+![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
+##Retrieve Photo Data from Flickr Using Flickr API - NIH Proposal for Food Environment
+######*Project conducted by*: San Diego State University
+######*Report prepared by*: Yi-ting Chuang (Department of Geography, San Diego State University)
+#### Abstract
 This technical note introduces how to retrieve food photos at Downtown San Diego from Instagram by using Instagram API. This notes searched photos by setting location ids, based on longitude and latitude, and radius arguments.
 
 - What is Instagram?
