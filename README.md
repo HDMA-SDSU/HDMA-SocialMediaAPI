@@ -4,11 +4,19 @@
 
 #### Abstract
 This repository contains techical documents, exmaples, python codes of social media API. Besides providing the description of how to do a search by keyword, HDMA center at SDSU more focuses on how to do spatil query in Social media. For example, 
-1) what parameters of spatial query are used in social media API,
-2) Can we use place names instead of coordinates to do a search?
-3) 
+1) what parameters of spatial query are used in social media API (ex: lat, lng, geonames, or radius?) 
+2) what are returned formats (ex: json, xml, or geojson)
+3) how to send a request by URL
+4) how to write a simple python code to send a request
 
 
 #### Folder Structure
-
+1) API-Facebook: Facebook API
+2) API-Locu: Locu API
+3) API-Yelp: Yelp API
+4) API-Flickr: Flickr API
+5) API-Instagram: Instagram API
+6) API-Twitter: Twitter API
+7) API-Youtube: Youtube API
+8) Integration API: We try to develop a search hub api of social media. Developers can import this API in their python and give relevant parameters to search data in above social media. 
  
