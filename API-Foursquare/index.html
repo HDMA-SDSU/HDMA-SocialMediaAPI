@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Foursquare API @ HDMA</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.6.0/bootstrap-table.min.css">
+        
+        <style>
+            .top-buffer { margin-top:20px; }
+        </style>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.6.0/bootstrap-table.min.js"></script>
+        <script>
+            var client_id = '2XONI0RHOSY4MAV5DP1QY2UVIBRCOXJVH1HNVV1X1XLFMLAL';
+            var client_secret = 'RMPRUYYDQRY5QW0WXLWILMJTDVVJOFYXECOKTY33UGD0F0JV';
+            
+            $(document).ready(function(){
+                $('#SDSU').on('click', function (ev) { $("#lat").val("32.777355"); $("#long").val("-117.06869") });
+                $('#UCSD').on('click', function (ev) { $("#lat").val("32.880666"); $("#long").val("-117.074058") });
+                $('#CityHeight').on('click', function (ev) { $("#lat").val("32.742080"); $("#long").val("-117.105468")});
+                $('#LittleItaly').on('click', function (ev) { $("#lat").val("32.724313"); $("#long").val("-117.168910")});
+                    
+                $("#SearchFQ_Button").click(function(){
+                    $('#table').find('tbody').empty();
+
+                    var q = $("#query").val();
+                    var lat = $("#lat").val();
+                    var long = $("#long").val();
+                    var radius = $("#radius").val();
+                    var ll = lat + "," + long
+                    var url = "https://api.foursquare.com/v2/venues/search?ll="+ll+"&query="+q+"&radius ="+radius+"&client_id="+client_id+"&client_secret="+client_secret+"&v=20150222"
+                    
+                    console.log(q)
+                    console.log(lat)
+                    console.log(long)
+                    console.log(ll)
+                    console.log(radius)
+                    console.log(url)
+                    
+                    $.getJSON(url,
+                        function(data){
+                         $.each(data.response.venues, function(i,venues){
+                            var tr;
+                            tr = $('<tr/>');
+                            tr.append("<td>" + venues.name + "</td>");
+                            tr.append("<td>" + venues.categories[0].name + "</td>");
+                            tr.append("<td>" + venues.location.distance + "</td>");
+                            tr.append("<td>" + venues.location.lat + "</td>");
+                            tr.append("<td>" + venues.location.lng + "</td>");
+                            $('#table').append(tr);
+                        });
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="topbar" class = container>
+        <h1 align="center">Foursquare API DEMO - Find Venues Around</h1>    
+        </div>
+        <hr>
+        <div id="searchFQ" class = container>
+            <h4>Search Parameters</h4>
+            <form class="form-horizontal" role="form"> 
+                <div class="form-group top-buffer">
+                    <label class="control-label col-sm-2 text-left" for="query">Venue Name:</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="query" class="form-control" name="query" value="restaurant"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="lat">Latitude:</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="lat" class="form-control" name="lat" value="32.777355"/>
+                    </div>
+                    <label class="control-label col-sm-2" for="long">Longitude:</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="long" class="form-control" name="long" value="-117.074058"/>
+                    </div>
+                    <label class="control-label col-sm-2" for="radius">Radius (meters):</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="radius" class="form-control" name="radius" value="1610"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-sm-2" for="radius">Pre-Defined Locations:</label>
+                        <input id="SDSU" class="btn btn-info" type="button" value="SDSU"/>
+                        <input id="UCSD" class="btn btn-info" type="button" value="UCSD"/>
+                        <input id="CityHeight" class="btn btn-info" type="button" value="City Height"/>
+                        <input id="LittleItaly" class="btn btn-info" type="button" value="Little Italy"/>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-12 center-block">
+                    <button id="SearchFQ_Button" type="button" class="btn btn-success btn-lg top-buffer center-block">Search Foursquare Venues</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="container" id= table_holder>
+            <div class="table-responsive ">
+                <h4>Search Results</h4>
+                <table class="table table-bordered" data-sort-name="name" data-sort-order="desc" id =table>
+                    <thead>
+                      <tr>
+                        <th data-field="name" data-align="right" data-sortable="true">Venue Name</th>
+                        <th data-field="category" data-align="right" data-sortable="true">Category</th>
+                        <th data-field="distance" data-align="right" data-sortable="true">Distance from Search Center</th>
+                        <th data-field="lat" data-align="right" data-sortable="true">lat</th>
+                        <th data-field="long" data-align="right" data-sortable="true">long</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
