@@ -18,24 +18,25 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
 ##### 1. What is Foursquare ?
 
-      [Foursquare](https://foursquare.com/) is a local search and discovery service mobile app which provides a personalised local search experience for its users. By taking into account the places a user goes, the things they have told the app that they like, and the other users whose advice they trust, Foursquare aims to provide highly personalised recommendations of the best places to go around a user's current location.
+[Foursquare](https://foursquare.com/) is a local search and discovery service mobile app which provides a personalised local search experience for its users. By taking into account the places a user goes, the things they have told the app that they like, and the other users whose advice they trust, Foursquare aims to provide highly personalised recommendations of the best places to go around a user's current location.
 
 ##### 2. What is Foursquare API ?
 
-   The [Foursquare API](https://developer.foursquare.com/start) (Application Programming Interface) allows developer to connect to the Foursquare database.  Developers can retrieve users and venues information or interact with Foursquare users and merchants.
+The [Foursquare API](https://developer.foursquare.com/start) (Application Programming Interface) allows developer to connect to the Foursquare database.  Developers can retrieve users and venues information or interact with Foursquare users and merchants.
 
 ##### 3. Is the Foursquare Free ?
 
-   **Yes**, using the API is free.  However, you will need to sign-up for a Foursquare account and then register your account to the [Foursquare for Developer](https://developer.foursquare.com/) to create your application. The registered application will grant you API keys that you need to interact with the Foursquare database.
+**Yes**, using the API is free.  However, you will need to sign-up for a Foursquare account and then register your account to the [Foursquare for Developer](https://developer.foursquare.com/) to create your application. The registered application will grant you API keys that you need to interact with the Foursquare database.
 
 ##### 4. To search for Foursquare Venues, what parameters I can use ?
 
-   The Search Venues method allow you to use parameters such as *search center* (latitude & longitude), *radius*, *venue name* ...etc.
+The Search Venues method allow you to use parameters such as *search center* (latitude & longitude), *radius*, *venue name* ...etc.
 
 ##### 5. What does the response looks like ?
 
-   Foursquare API responses are in JSON (JavaScript Object Notation) format.  Following is an example of one Starbucks venue that is located at the San Diego State University.
+Foursquare API responses are in JSON (JavaScript Object Notation) format.  Following is an example of one Starbucks venue that is located at the San Diego State University.
 
+	'''JSON
 	{
 	    "venues": [
 	        {
@@ -94,6 +95,7 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 	        }
 	    ]
 	}
+	'''
 
 --- 
 
