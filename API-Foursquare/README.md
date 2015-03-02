@@ -10,18 +10,18 @@
 #### Introduction
 This section introduces the Foursquare API, which allows developer to connect to the Foursquare database for retrieval of users and venues information.
 
-+ Kick start and learn how to use the API by follow our *[technical note](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Tech_Document)*.
-+ Or check out our *[examples](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Example)* of a web search interface and a python script.
-+ For detailed methods and official documentation of the Foursquare API, please go to [Foursquare for Developer](https://developer.foursquare.com/) 
++ Kick start and learn how to use the API by follow our *[technical note](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Tech_Document)*
++ Or check out our *[examples](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Example)* of a web search interface and a python script
++ For detailed methods and documentation of the Foursquare API, please go to the official [Foursquare for Developer](https://developer.foursquare.com/) page
 
 ---
 
 #### Folder Structure
 - Examples
-	- Web Search Interface Example
-	- Python Script Example
+	1. Web Search Interface Example
+	2. Python Script Example
 - Technical Document
-	- Technical Note on Working with Foursquare API (in .docx format)
+	1. Technical Note on Working with Foursquare API (in .docx format)
 
 
 In the Example folder, This technical note covers some details about using the API, from getting started with applying the API keys to using the API method and retrieving data.
