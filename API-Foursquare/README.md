@@ -11,9 +11,9 @@ This technical note introduces the Foursquare API, which allows developer to con
 There are many methods can be used from an endpoint application, however, this technical note will only focus on how to search and obtain information about venues with spatial parameters.  The data retrieved from Foursquare with the API has potential to be used for mapping and analyzing the accessibility to food.
 
 This report covers the following items:
-*Sign up for Foursquare account
-*Register your Foursquare application
-*Search for a Starbucks venue within 1000 meters radius of the San Diego State university.
+* Sign up for Foursquare account
+* Register your Foursquare application
+* Search for a Starbucks venue within 1000 meters radius of the San Diego State university.
 
 
 This repository contains technical documents, exmaples, python codes of social media API. Besides providing the description of how to do a search by keyword, HDMA center at SDSU more focuses on how to do spatil query in Social media. For example,br 
