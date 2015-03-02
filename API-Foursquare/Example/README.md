@@ -3,7 +3,7 @@
 
 ---
 
-#### Examples
+## Examples
 This section contains two examples using the Foursquare API:
 1. Python-based script to search and get Foursquare venues.
 2. Web-based interface to search and show Foursquare venues.
