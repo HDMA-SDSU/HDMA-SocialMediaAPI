@@ -24,7 +24,7 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
 ##### 3. Is the Foursquare Free ?
 
-   *Yes*, using the API is free.  However, you will need to sign-up for a Foursquare account and then register your account to the [Foursquare for Developer](https://developer.foursquare.com/) to create your application. The registered application will grant you API keys that you need to interact with the Foursquare database.
+   **Yes**, using the API is free.  However, you will need to sign-up for a Foursquare account and then register your account to the [Foursquare for Developer](https://developer.foursquare.com/) to create your application. The registered application will grant you API keys that you need to interact with the Foursquare database.
 
 ##### 4. To search for Foursquare Venues, what parameters I can use ?
 
@@ -34,7 +34,8 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
    Foursquare API responses are in JSON (JavaScript Object Notation) format.  Following is an example of one Starbucks venue that is located at the San Diego State University.
 
-'''json
+'''javascript
+
 {
     "venues": [
         {
