@@ -2,6 +2,8 @@
 ######*Project conducted by*: San Diego State University
 ######*Content prepared by*: Jiue-An (Jay) Yang @ San Diego State University
 
+---
+
 ## Working with the Foursquare API (using Python)
 
 ---
@@ -16,7 +18,7 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
 ##### 1. What is Foursquare ?
 
-   [Foursquare](https://foursquare.com/) is a local search and discovery service mobile app which provides a personalised local search experience for its users. By taking into account the places a user goes, the things they have told the app that they like, and the other users whose advice they trust, Foursquare aims to provide highly personalised recommendations of the best places to go around a user's current location.
+      [Foursquare](https://foursquare.com/) is a local search and discovery service mobile app which provides a personalised local search experience for its users. By taking into account the places a user goes, the things they have told the app that they like, and the other users whose advice they trust, Foursquare aims to provide highly personalised recommendations of the best places to go around a user's current location.
 
 ##### 2. What is Foursquare API ?
 
@@ -95,7 +97,7 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
 --- 
 
-### Getting Started !
+#### Getting Started !
 
 + Kick start and learn how to use the API by follow our *[technical note](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Tech_Document)*
 + Or check out our *[examples](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/tree/dev/API-Foursquare/Example)* of a web search interface and a python script
