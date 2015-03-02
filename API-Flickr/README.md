@@ -37,4 +37,4 @@ Flickr photo format: https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{se
 
 This note only utilizes flickr.photos.search() method to search photos. For more information (e.g. date, place id, and size) of photos, go to [https://www.flickr.com/services/api/](https://www.flickr.com/services/api/).
 
-####Demo site: http://vision.sdsu.edu/ychuang/Flickr_InstagramAPI/flickr.htm
+####Demo site: http://vision.sdsu.edu/ychuang/Flickr_InstagramAPI/socialMedia_API.html
