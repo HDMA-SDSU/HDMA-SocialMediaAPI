@@ -10,7 +10,7 @@ This technical note introduces the Foursquare API, which allows developer to con
 
 There are many methods can be used from an endpoint application, however, this technical note will only focus on how to search and obtain information about venues with spatial parameters.  The data retrieved from Foursquare with the API has potential to be used for mapping and analyzing the accessibility to food.
 
-This report covers the following items:
+This technical note covers the following items:
 * Sign up for Foursquare account
 * Register your Foursquare application
 * Search for a Starbucks venue within 1000 meters radius of the San Diego State university.
@@ -20,3 +20,4 @@ This report covers the following items:
 	- Web Search Interface Example
 	- Python Script Example
 - Technical Document
+	- Technical Note on Working with Foursquare API (in .docx format)
