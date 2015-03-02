@@ -50,4 +50,4 @@ Photo data:
 #### Limitation: 
  A limitation of using Istagram API to search location ids is that it only responds 20 location ids at a time. If you want to get more location ids at once, you can utilize Graph API by Facebook to get a list of facebook_places_ids (500 data) and convert it into Instagram location ids by using “locations/search?facebook_places_id” method. You can get 500 Instagram location ids instead of 20.
 
-####Demo site: http://vision.sdsu.edu/ychuang/Flickr_InstagramAPI/instagramFB.htm
+####Demo site: http://vision.sdsu.edu/ychuang/Flickr_InstagramAPI/socialMedia_API.html
