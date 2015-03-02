@@ -34,67 +34,64 @@ Lets start with the Foursquare API 101, and then you can explore more about usin
 
    Foursquare API responses are in JSON (JavaScript Object Notation) format.  Following is an example of one Starbucks venue that is located at the San Diego State University.
 
-'''javascript
-
-{
-    "venues": [
-        {
-            "hasMenu": true,
-            "verified": false,
-            "name": "Starbucks",
-            "referralId": "v-1423476221",
-            "url": "http://www.starbucks.com",
-            "menu": {
-                "url": "https://foursquare.com/v/starbucks/4b832dc7f964a52000fc30e3/menu",
-                "mobileUrl": "https://foursquare.com/v/4b832dc7f964a52000fc30e3/device_menu",
-                "type": "Menu",
-                "anchor": "View Menu",
-                "label": "Menu"
-            },
-            "contact": {
-                "phone": "6195947733",
-                "twitter": "starbucks",
-                "formattedPhone": "(619) 594-7733"
-            },
-            "location": {
-                "distance": 202,
-                "city": "San Diego",
-                "cc": "US",
-                "country": "United States",
-                "postalCode": "92115",
-                "state": "CA",
-                "formattedAddress": [
-                    "5500 Campanile Dr",
-                    "San Diego, CA 92115",
-                    "United States"
-                ],
-                "address": "5500 Campanile Dr",
-                "lat": 32.77626,
-                "lng": -117.07404
-            },
-            "stats": {
-                "tipCount": 5,
-                "checkinsCount": 1152,
-                "usersCount": 338
-            },
-            "id": "4b832dc7f964a52000fc30e3",
-            "categories": [
-                {
-                    "pluralName": "Coffee Shops",
-                    "primary": true,
-                    "name": "Coffee Shop",
-                    "shortName": "Coffee Shop",
-                    "id": "4bf58dd8d48988d1e0931735",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
-                        "suffix": ".png"
-                    }
-                }
-            ]
-        }
-    ]
-}
-'''
+	{
+	    "venues": [
+	        {
+	            "hasMenu": true,
+	            "verified": false,
+	            "name": "Starbucks",
+	            "referralId": "v-1423476221",
+	            "url": "http://www.starbucks.com",
+	            "menu": {
+	                "url": "https://foursquare.com/v/starbucks/4b832dc7f964a52000fc30e3/menu",
+	                "mobileUrl": "https://foursquare.com/v/4b832dc7f964a52000fc30e3/device_menu",
+	                "type": "Menu",
+	                "anchor": "View Menu",
+	                "label": "Menu"
+	            },
+	            "contact": {
+	                "phone": "6195947733",
+	                "twitter": "starbucks",
+	                "formattedPhone": "(619) 594-7733"
+	            },
+	            "location": {
+	                "distance": 202,
+	                "city": "San Diego",
+	                "cc": "US",
+	                "country": "United States",
+	                "postalCode": "92115",
+	                "state": "CA",
+	                "formattedAddress": [
+	                    "5500 Campanile Dr",
+	                    "San Diego, CA 92115",
+	                    "United States"
+	                ],
+	                "address": "5500 Campanile Dr",
+	                "lat": 32.77626,
+	                "lng": -117.07404
+	            },
+	            "stats": {
+	                "tipCount": 5,
+	                "checkinsCount": 1152,
+	                "usersCount": 338
+	            },
+	            "id": "4b832dc7f964a52000fc30e3",
+	            "categories": [
+	                {
+	                    "pluralName": "Coffee Shops",
+	                    "primary": true,
+	                    "name": "Coffee Shop",
+	                    "shortName": "Coffee Shop",
+	                    "id": "4bf58dd8d48988d1e0931735",
+	                    "icon": {
+	                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+	                        "suffix": ".png"
+	                    }
+	                }
+	            ]
+	        }
+	    ]
+	}
 
 --- 
 
