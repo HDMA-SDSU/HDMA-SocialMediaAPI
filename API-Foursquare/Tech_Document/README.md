@@ -14,4 +14,6 @@ This technical note covers the following items:
 * Register your Foursquare application
 * Search for a Starbucks venue within 1000 meters radius of the San Diego State university.
 
+---
+
 Download the [technical note](https://github.com/HDMA-SDSU/HDMA-SocialMediaAPI/blob/dev/API-Foursquare/Tech_Document/Tech-Doc-FQ-API-02082015.docx?raw=true) for full content.
