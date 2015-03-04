@@ -37,5 +37,37 @@ POST graph.facebook.com/{comment-id}?method=delete
 ```
 #### 2. Graph API Explorer
 In this section, the basic interface of Facebook graph API explorer and its main functions will be introduced.
-
 * **a) The Web-based Interface of Graph API Explorer ( https://developers.facebook.com/tools/explorer/ )**
+
+The easiest tool for using the Graph API is the Graph API Explorer; for using it a registered Facebook account is required.
+* **b) Get the Access Token**
+
+*When someone connects with an app using Facebook Login, the app will be able to obtain an access token which provides temporary, secure access to Facebook APIs. —from Facebook developers website*
+
+You will automatically get an access token with default data access permissions when you open the Graph API Explorer.By default Facebook only allows you to retrieve the basic information. For testing you can push the "Get Access Token" button and grant the other data access permissions in the pop-up window.
+
+* **c) Make the Requests**
+
+The HTTP requests can be submitted by clicking the "Submit" button on the *Graph API Explorer* webpage. You can select different requests (GET, POST, or DELETE) and input the search target (i.e. a node-id) to explore the query data. In this document we will only focus on how to read (GET) the data out of Facebook's social graph. 
+
+* **d) GET a “Zoo”!**
+
+The HTTP GET request can be use to retrieve the data from **nodes** (such as a User, a Photo, a Page, or a Comment). For example, if you want to know the information about the San Diego Zoo, you need to input the node-id ‘28896772146’ or its name ‘SanDiegoZoo’ into the query field and push the submit button. The result will come up immediately with a JSON string.
+
+As can be seen, the detail information of the San Diego Zoo will be included in the JSON string as JSON objects, those objects are the **fields** of the ‘SanDiegoZoo’ **node**. You can also use your web browser and type in http://graph.facebook.com/SanDiegoZoo to get the same result. Here the access token is not required because the SanDiegoZoo is a public place in Facebook. 
+
+If the **node** has a location **fields**, you will find the location information such as address, zip code, or geographical coordinates inside the location object if provided. You can append a search string like ‘?fields =location’ after the node-id or name if you don’t want to see other information but the location information. You can also make a query for multiple fields as well.
+
+* **e) Graph API Search**
+
+All public objects can be searched in the Facebook social graph. When using the Graph API Search, the App or user access tokens is required for all search Graph API calls.  
+For example, if you want to search coffee shops over the place objects in the social graph, you can use the GET request like:
+```
+https://graph.facebook.com/search?q=coffee&type=place&access_token={access-token}
+```
+
+This search can be narrowed to a specific location and searching radius by adding the **center** (with latitude and longitude) parameter and a optioanl **distance** parameter. The distance is messured in meters.
+```
+https://graph.facebook.com/search?q=coffee&type=place&center=37.76,-122.427&distance=1000&access_token={access-token}
+```
+* **f)** You can also narrow the search by adding the **fields**  parameter. For example, if you only want to show the name and the location information, you will need to append a string like ‘fields=name,location’ to the search string and then all other information will be hidden (see figure 10). Note that the subfields are not supported by location which means you can not extract the subfield information (i.e. latitude and longitude) seperately from the location **fields**.
