@@ -38,4 +38,4 @@ POST graph.facebook.com/{comment-id}?method=delete
 #### 2. Graph API Explorer
 In this section, the basic interface of Facebook graph API explorer and its main functions will be introduced.
 
-* **a) The Web-based Interface of Graph API Explorer( https://developers.facebook.com/tools/explorer/ )**
+* **a) The Web-based Interface of Graph API Explorer ( https://developers.facebook.com/tools/explorer/ )**
