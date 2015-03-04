@@ -15,7 +15,10 @@ Currently, the latest version of the Graph API is v2.2.
 There are three different kinds of requests which Graph API provides:
 * *HTTP GET*: The most widely used request in the Graph API used to read all the **nodes and edges**. For example if you want to read all your photos you can do the request below:
 
-```GET graph.facebook.com/me/photos```
+```
+GET graph.facebook.com
+	/me/photos
+```
 
 Some request will need the access token to make the API calls. If you don’t have it you may get the error message like:
 ```
@@ -29,11 +32,14 @@ Some request will need the access token to make the API calls. If you don’t ha
 ```
 * *HTTP GET*: The POST request is used to create, update, and delete data in the social graph. For example if you want to publish a post on behalf of someone, you can do:
 ```
-  POST graph.facebook.com/{user-id}/feed?message={message}&access_token={access-token}
+ POST graph.facebook.com
+	/{user-id}/feed?
+    message={message}&access_token={access-token}
 ```
 * *HTTP DELETE*: Also used to delete data in Facebook social graph. The JavaScript clients are not supported; those clients have to issue a *POST* request to delete an object.
 ```
-POST graph.facebook.com/{comment-id}?method=delete
+POST graph.facebook.com
+	/{comment-id}?method=delete
 ```
 #### 2. Graph API Explorer
 In this section, the basic interface of Facebook graph API explorer and its main functions will be introduced.
@@ -63,11 +69,30 @@ If the **node** has a location **fields**, you will find the location informatio
 All public objects can be searched in the Facebook social graph. When using the Graph API Search, the App or user access tokens is required for all search Graph API calls.  
 For example, if you want to search coffee shops over the place objects in the social graph, you can use the GET request like:
 ```
-https://graph.facebook.com/search?q=coffee&type=place&access_token={access-token}
+https://graph.facebook.com/
+			search?q=coffee&type=place
+			&access_token={access-token}
 ```
 
 This search can be narrowed to a specific location and searching radius by adding the **center** (with latitude and longitude) parameter and a optioanl **distance** parameter. The distance is messured in meters.
 ```
-https://graph.facebook.com/search?q=coffee&type=place&center=37.76,-122.427&distance=1000&access_token={access-token}
+https://graph.facebook.com/
+			search?q=coffee&type=place
+			&center=37.76,-122.427&distance=1000
+			&access_token={access-token}
 ```
 * **f)** You can also narrow the search by adding the **fields**  parameter. For example, if you only want to show the name and the location information, you will need to append a string like ‘fields=name,location’ to the search string and then all other information will be hidden (see figure 10). Note that the subfields are not supported by location which means you can not extract the subfield information (i.e. latitude and longitude) seperately from the location **fields**.
+
+#### 3. *Facebook SDKs*
+Facebook provides official SDKs for iOS, Android, Unity, JavaScript and PHP. There are also many third-party SDKs for other languages such as Python-sdk. A python example may look like:
+```
+import facebook
+# initialize the graphAPI object
+graph = facebook.GraphAPI(access_token='your_token', version='2.2')
+# get the information of San Diego Zoo by input the Node ID
+sandiegozoo = graph.get_object(id=28896772146')
+# get the checkin number of San Diego Zoo from the output data
+print(sandiegozoo['checkins'])
+```
+
+#####For more information please go https://developers.facebook.com.
