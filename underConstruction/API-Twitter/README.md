@@ -1,2 +1,12 @@
-# HDMA-SocialMediaAPI
-Social Media API
+![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
+######*Project conducted by*: San Diego State University
+######*Content prepared by*: Jiue-An (Jay) Yang @ San Diego State University
+
+---
+
+## Using the Search API (with Python)
+
+Among many popular social media and social networking services, Twitter is kind enough to provide powerful and relatively friendly API for developers to interact with the Twitter database.  In this tutorial, we will go through the steps of setting up and using the Twitter Search API.  The Twitter API can be accessed with many computer programming language, in this tutorial we use Python to demonstrate how to use the Twitter Search API and access Twitter data. 
+
+---
+
