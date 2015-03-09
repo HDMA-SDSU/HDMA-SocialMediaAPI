@@ -12,22 +12,29 @@ Among many popular social media and social networking services, Twitter is kind 
 
 #### Prerequisite
 
-###### Python version 2.x or 3.x
+##### Python version 2.x or 3.x
 
 Python is a popular computer programming language created by Guido van Rossum.
 It's currently ranked # 4 by the IEEE Spectrum’s 2014 Ranking (http://goo.gl/CSfla6).
 
-To learn more about Python, check out the official website at (https://www.python.org/doc/)
+To learn more about Python, check out the official website at (https://www.python.org/doc/
 Python can be downloaded at https://www.python.org/download
  
-Twitter API Libraries for Python
-There are many existing API libraries (wrappers) for Python and they tend to make it easier to work with the Twitter APIs.  A list of Python wrappers for Twitter APIs can be found at https://dev.twitter.com/docs/twitter-libraries.   Navigate to the Python section and install the one of your own choice.   In this tutorial,  we select the library called "Tweepy".
+##### Twitter API Libraries for Python
+
+There are many existing API libraries (wrappers) for Python and they tend to make it easier to work with the Twitter APIs.
+A list of Python wrappers for Twitter APIs can be found at https://dev.twitter.com/docs/twitter-libraries.
+Navigate to the Python section and install the one of your own choice.   In this tutorial,  we select the library called "Tweepy".
+
 Instructions of installing Tweepy and its documentation can be found at https://github.com/tweepy/tweepy
 
-Getting Started
-Obtain your API keys.
-Create a Twitter account
-Sign up a Twitter account at https://twitter.com/
+---
+
+#### Getting Started
+
+- Obtain your API keys.
+- Create a Twitter account
+- Sign up a Twitter account at https://twitter.com/
 
 
 
