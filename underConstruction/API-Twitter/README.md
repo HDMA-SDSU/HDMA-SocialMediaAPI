@@ -36,7 +36,7 @@ Instructions of installing Tweepy and its documentation can be found at https://
 - Create a Twitter account
 - Sign up a Twitter account at https://twitter.com/
 - Log on to Twitter Developer (https://dev.twitter.com/) and sign in with the Twitter account you just created. 
-- Create your Twitter application and generate your API keys/Tokens.  You can follow the tutorial at [*<How to Register a Twitter App in 8 Easy Steps>*](http://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/)
+- Create your Twitter application and generate your API keys/Tokens.  You can follow the tutorial at [<How to Register a Twitter App in 8 Easy Steps>](http://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/)
 
 ##### Write Python codes with your API keys
 
