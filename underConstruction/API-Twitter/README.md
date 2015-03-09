@@ -15,7 +15,7 @@ Among many popular social media and social networking services, Twitter is kind 
 ##### Python version 2.x or 3.x
 
 Python is a popular computer programming language created by Guido van Rossum.
-It's currently ranked # 4 by the IEEE Spectrum’s 2014 Ranking (http://goo.gl/CSfla6).
+It's currently ranked # 4 by [the IEEE Spectrum’s 2014 Ranking](http://goo.gl/CSfla6).
 
 To learn more about Python, check out the official website at (https://www.python.org/doc/
 Python can be downloaded at https://www.python.org/download
@@ -32,10 +32,13 @@ Instructions of installing Tweepy and its documentation can be found at https://
 
 #### Getting Started
 
-- Obtain your API keys.
+##### Obtain your API keys.
 - Create a Twitter account
 - Sign up a Twitter account at https://twitter.com/
+- Log on to Twitter Developer (https://dev.twitter.com/) and sign in with the Twitter account you just created. 
+- Create your Twitter application and generate your API keys/Tokens.  You can follow the tutorial at [*<How to Register a Twitter App in 8 Easy Steps>*](http://iag.me/socialmedia/how-to-create-a-twitter-app-in-8-easy-steps/)
+
+##### Write Python codes with your API keys
 
 
 
-![logo](https://dchtm6r471mui.cloudfront.net/hackpad.com_29Ez16AOf3f_p.226694_1408968033882_Screen%20Shot%202014-08-25%20at%205.00.02%20AM.png)
