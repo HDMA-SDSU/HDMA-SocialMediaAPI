@@ -1,4 +1,4 @@
-######*Project conducted by*: San Diego State University
+######*Project conducted by*: Kent State University
 ######*Content prepared by*: Jiue-An (Jay) Yang @ San Diego State University
 
 ---
