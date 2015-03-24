@@ -96,3 +96,4 @@ print(sandiegozoo['checkins'])
 ```
 
 #####For more information please go https://developers.facebook.com.
+#####Demo Site: http://vision.sdsu.edu/ychuang/Flickr_InstagramAPI/demoFB.html
