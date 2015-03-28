@@ -1,2 +1,2 @@
 # HDMA-SocialMediaAPI
-Social Media API
+Facebook API
