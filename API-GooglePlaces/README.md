@@ -55,10 +55,11 @@ To get started, the first thing to do is to get an API key for Google Places. Th
 
 ## Import Goolge Places API into your Web applications
 
-1.	After your get the Google API key, you need to import Google Places API into your Web application with the API key. 
+1.	After your get the Google API key, you need to import Google Places API into your Web application with the API key.
     ```sh
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqd6BFSfKhHPiGaNUXnSt6jAzQ9q_3DyU&libraries=places"></script>
     ```  
+    
 2.	You need to init a Google Maps object first to have a google Place object.
     ```sh
     var map=new google.maps.Map(document.getElementById("domID_MAP")); 
