@@ -1,4 +1,5 @@
-![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
+
+<img src='http://humandynamics.sdsu.edu/images/HDMA_Logo.png' style='width=50px; ' />
 ##Google Places API
 ######*Project conducted by*: San Diego State University
 ######*Report prepared by*: Chin-Te (Calvin) Jung (Department of Geography, San Diego State University)
