@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HDMA-FoodEnvrionment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.6.0/bootstrap-table.min.css">
+
+        <style>
+            .top-buffer { margin-top:20px; }
+            td img { width:200px; }
+        </style>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.6.0/bootstrap-table.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqd6BFSfKhHPiGaNUXnSt6jAzQ9q_3DyU&libraries=places"></script>
+        <script>
+            //API keys
+            var foursquare_client_id = '2XONI0RHOSY4MAV5DP1QY2UVIBRCOXJVH1HNVV1X1XLFMLAL';
+            var foursquare_client_secret = 'RMPRUYYDQRY5QW0WXLWILMJTDVVJOFYXECOKTY33UGD0F0JV';
+            var flickr_key = '56f64a8239847ea11ac70397cfab1bf6';
+            var instagram_access_token = "1775391888.aeee163.97947e3cd4fc4ec19faab119f98a1ed0";
+            var fb_access_token = "683114128475392|9a-8LsyKzl52S721KyIontxXoq8&expires=5184000";
+
+
+
+
+            $(document).ready(function () {
+				var map=new google.maps.Map(document.getElementById("map"));
+				var googlePlace=new google.maps.places.PlacesService(map)
+
+
+                $('#SDSU').on('click', function (ev) { $("#lat").val("32.777355"); $("#long").val("-117.06869") });
+                $('#UCSD').on('click', function (ev) { $("#lat").val("32.880666"); $("#long").val("-117.074058") });
+                $('#CityHeight').on('click', function (ev) { $("#lat").val("32.742080"); $("#long").val("-117.105468") });
+                $('#LittleItaly').on('click', function (ev) { $("#lat").val("32.724313"); $("#long").val("-117.168910") });
+
+                $("#SearchFQ_Button").click(function () {
+                    $('#loading').empty();
+                    $('#table').find('tbody').empty();
+                    $('#loading').append("<img id='load' src='images/spinner.gif' class='center-block' style='width:50px;'>")
+
+                    var api = $("#apiList").val();
+                    var q = $("#query").val();
+                    var lat = $("#lat").val();
+                    var long = $("#long").val();
+                    var radius = $("#radius").val();
+                    var ll = lat + "," + long
+
+                    //API urls
+                    var foursquare_url = "https://api.foursquare.com/v2/venues/search?ll=" + ll + "&query=" + q + "&radius =" + radius + "&client_id=" + foursquare_client_id + "&client_secret=" + foursquare_client_secret + "&v=20150222"
+                    var flickr_url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickr_key + '&tags=' + q + "&lat=" + lat + "&lon=" + long + '&radius=' + radius+ '&per_page=10000&extras=date_taken,tags,title,description,geo&format=json&sort=date-taken-asc&jsoncallback=?'
+
+                    console.log(q)
+                    console.log(lat)
+                    console.log(long)
+                    console.log(ll)
+                    console.log(radius)
+                    console.log(foursquare_url)
+                    console.log(flickr_url)
+                    $("#SearchFQ_Button").prop('disabled', true);
+                    $("#load").show("slow", function () { });
+
+
+					switch(api){
+						case "Foursquare":
+							var columns = "<tr>"
+							columns += "<th data-field='name' data-align='right' data-sortable='true'>Venue Name</th>"
+							columns += "<th data-field='category' data-align='right' data-sortable='true'>Category</th>"
+							columns += "<th data-field='distance' data-align='right' data-sortable='true'>Distance from Search Center</th>"
+							columns += "<th data-field='lat' data-align='right' data-sortable='true'>lat</th>"
+							columns += "<th data-field='long' data-align='right' data-sortable='true'>long</th>"
+							columns += "</tr>"
+							$("#thead").empty().append(columns);
+							$.getJSON(foursquare_url,
+								function (data) {
+									$("#load").hide("slow", function () { });
+									$.each(data.response.venues, function (i, venues) {
+										var tr;
+										tr = $('<tr/>');
+										tr.append("<td>" + venues.name + "</td>");
+										tr.append("<td>" + venues.categories[0].name + "</td>");
+										tr.append("<td>" + venues.location.distance + "</td>");
+										tr.append("<td>" + venues.location.lat + "</td>");
+										tr.append("<td>" + venues.location.lng + "</td>");
+										$('#table').append(tr);
+									});
+									$("#SearchFQ_Button").prop('disabled', false);
+
+								});
+						break;
+						case "Flickr":
+							var columns = "<tr>"
+							columns += "<th data-field='photo' data-align='right' data-sortable='true'>Photo</th>"
+							columns += "<th class='col-sm-2' data-field='title' data-align='right' data-sortable='true'>Title</th>"
+							columns += "<th class='col-sm-3' data-field='description' data-align='right' data-sortable='true'>Description</th>"
+							columns += "<th data-field='lat' data-align='right' data-sortable='true'>lat</th>"
+							columns += "<th data-field='long' data-align='right' data-sortable='true'>long</th>"
+							columns += "<th data-field='time' data-align='right' data-sortable='true'>Date Taken</th>"
+							columns += "</tr>"
+							$("#thead").empty().append(columns);
+							$.getJSON(flickr_url,
+								function (data) {
+									$("#load").hide("slow", function () { });
+									for (page = 1; page <= data.photos.pages; page++) {
+										flickr_url = flickr_url + "&page=" + page.toString();
+										$.getJSON(flickr_url,
+											function (data) {
+												$.each(data.photos.photo, function (i, item) {
+													var photo_html = "";
+													var photoSite = "https://www.flickr.com/photos/";
+													photo_html += '<a href="' + photoSite + item.owner + "/" + item.id + '" target="_blank">';
+													photo_html += '<img src="' + "https://farm" + item.farm + ".staticflickr.com/" + item.server + "/" + item.id + "_" + item.secret + ".jpg" + '" alt="' + item.title + '" title="' + item.title + '"/>';
+													photo_html += '</a>';
+													var tr;
+													tr = $('<tr/>');
+													tr.append("<td>" + photo_html + "</td>");
+													tr.append("<td>" + item.title + "</td>");
+													tr.append("<td>" + item.description._content + "</td>");
+													tr.append("<td>" + item.latitude + "</td>");
+													tr.append("<td>" + item.longitude + "</td>");
+													tr.append("<td>" + item.datetaken + "</td>");
+													$('#table').prepend(tr);
+												});
+											});
+											$("#SearchFQ_Button").prop('disabled', false);
+									}
+								});
+						break;
+						case "Instagram":
+							var columns = "<tr>"
+							columns += "<th class='col-sm-2' data-field='photo' data-align='right' data-sortable='true'>Photo</th>"
+							columns += "<th class='col-sm-3' data-field='comments' data-align='right' data-sortable='true'>Comments</th>"
+							columns += "<th data-field='lat' data-align='right' data-sortable='true'>lat</th>"
+							columns += "<th data-field='long' data-align='right' data-sortable='true'>long</th>"
+							columns += "<th data-field='time' data-align='right' data-sortable='true'>Created Date</th>"
+							columns += "</tr>"
+							$("#thead").empty().append(columns);
+							var locationArr = [];
+							var fb_url = "https://graph.facebook.com/search?q=&type=place&center=" + lat + "," + long + "&distance=" + (radius*1600) + "&access_token=" + fb_access_token;
+							$.getJSON(fb_url,function (data) {
+									var locations = data.data;
+									for (var key in locations) {
+										if ($.inArray(locations[key].id.toString(), locationArr) == -1) {
+											locationArr.push(locations[key].id.toString());
+										}
+									}
+									for (i = 0; i < 300; i++) {
+										$.ajax({
+											type: "GET",
+											dataType: "jsonp",
+											cache: false,
+											url: "https://api.instagram.com/v1/locations/search?facebook_places_id=" + locationArr[i] + "&access_token=" + instagram_access_token,
+											success: function (location_data) {
+												var locationData = location_data.data;
+
+												if(locationData.length>0){
+													$.ajax({
+														type: "GET",
+														dataType: "jsonp",
+														cache: false,
+														url: "https://api.instagram.com/v1/locations/" + locationData[0].id + "/media/recent?access_token=" + instagram_access_token,
+														success: function (insta_data) {
+															displayImages(insta_data, q)
+														}
+													});
+												}
+
+											}
+										});
+									}
+							});
+
+							function displayImages(instagram_data, tag) {
+									$("#load").hide("slow", function () { });
+
+									if (instagram_data.meta.code == 200) {
+										var photos = instagram_data.data;
+										if (photos.length > 0) {
+											for (var key in photos) {
+												var photo = photos[key];
+												if ($.inArray(tag.toString(), photo.tags) != -1) {
+													var date = new Date(parseInt(photo.created_time) * 1000);
+													var photo_html = '<a title="' + photo.tags[0] + '" href="' + photo.link + '"><img src="' + photo.images.low_resolution.url + '"/></a>';
+													var comments_html = ""
+													if (photo.comments.count == 0) { comments_html = "No comment exists." }
+													else {
+														for (i = 0; i < photo.comments.count; i++) {
+															comments_html += photo.comments.data[i].text.toString() + "<hr/>"
+														}
+													}
+													var tr;
+													tr = $('<tr/>');
+													tr.append("<td>" + photo_html + "</td>");
+													tr.append("<td>" + comments_html + "</td>");
+													tr.append("<td>" + photo.location.latitude + "</td>");
+													tr.append("<td>" + photo.location.longitude + "</td>");
+													tr.append("<td>" + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getFullYear() + "</td>");
+													$('#table').prepend(tr);
+												}
+											}
+										}
+										$("#SearchFQ_Button").prop('disabled', false);
+									}else {
+										var error = instagram_data.meta.error_message;
+										target.html(error);
+									}
+							}
+						break;
+						case "Google Places":
+
+							googlePlace.nearbySearch({
+								location:new google.maps.LatLng(lat, long),
+								radius:radius*1609.34,
+								types:["restaurant"],
+								name:q
+							}, function(results){
+								$("#SearchFQ_Button").prop('disabled', false);
+								$("#load").hide();
+
+								if(results&&results.length>0){
+									var $thead=$("#table #thead").html("<tr><td>Name</td><td>Category</td><td>Latitude</td><td>Longitude</td></tr>"),
+										$tbody=$("#table #tbody");
+
+									$.each(results, function(i, obj){
+
+										var name=obj.name,
+											//photoURL=(obj.photos.length>0)?obj.photos[0].getUrl():null,
+											lat=obj.geometry.location.lat(),
+											lng=obj.geometry.location.lng(),
+											types=obj.types.join(", ");
+
+										$tbody.append("<tr>"+
+													  //"<td>"+((photoURL)?("<img src='"+photoURL+"' style='width:100px; height:100px; ' />"):"")+"</td>"+
+													  "<td>"+name+"</td>"+
+													  "<td>"+types+"</td>"+
+													  //"<td>"+''+"</td>"+
+													  "<td>"+lat+"</td>"+
+													  "<td>"+lng+"</td>"+
+													  "</tr>");
+									});
+								}
+							})
+
+						break;
+					}
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <img src="images/HDMA_Logo_Small_HORIZONTAL_MAIN.png" style="width:300px; margin:20px auto auto 10px" />
+        <div id="topbar" class = container>
+        <h1 align="center">Social Media API DEMO</h1>
+        </div>
+        <hr>
+        <div id="searchFQ" class = container>
+            <h4>Search Parameters</h4>
+            <form class="form-horizontal" role="form">
+				<div class="form-group top-buffer">
+					<label class="control-label col-sm-2 text-left" for="query">API:</label>
+					<div class="col-sm-2">
+                        <select class="form-control" id="apiList">
+                            <option>Foursquare</option>
+                            <option>Flickr</option>
+                            <option>Instagram</option>
+							<option>Google Places</option>
+                        </select>
+					</div>
+				</div>
+                <div class="form-group top-buffer">
+                    <label class="control-label col-sm-2 text-left" for="query">Keywords:</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="query" class="form-control" name="query" value="restaurant"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="lat">Latitude:</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="lat" class="form-control" name="lat" value="32.777355"/>
+                    </div>
+                    <label class="control-label col-sm-2" for="long">Longitude:</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="long" class="form-control" name="long" value="-117.074058"/>
+                    </div>
+                    <label class="control-label col-sm-2" for="radius">Radius (miles):</label>
+                    <div class="col-sm-2">
+                        <input type="text" id="radius" class="form-control" name="radius" value="1"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label col-sm-2" for="radius">Pre-Defined Locations:</label>
+                        <input id="SDSU" class="btn btn-info" type="button" value="SDSU"/>
+                        <input id="UCSD" class="btn btn-info" type="button" value="UCSD"/>
+                        <input id="CityHeight" class="btn btn-info" type="button" value="City Height"/>
+                        <input id="LittleItaly" class="btn btn-info" type="button" value="Little Italy"/>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-12 center-block">
+                    <button id="SearchFQ_Button" type="button" class="btn btn-success btn-lg top-buffer center-block">Search by Locations and Keywords</button>
+                    </div>
+                </div>
+                <div id="loading" class="col-md-12 center-block"></div>
+            </form>
+        </div>
+        <hr>
+        <div class="container" id= table_holder>
+            <div class="table-responsive ">
+                <h4>Search Results</h4>
+                <table class="table table-bordered" data-sort-name="name" data-sort-order="desc" id =table>
+                    <thead id="thead">
+                      <!--<tr>
+                        <th data-field="name" data-align="right" data-sortable="true">Venue Name</th>
+                        <th data-field="category" data-align="right" data-sortable="true">Category</th>
+                        <th data-field="distance" data-align="right" data-sortable="true">Distance from Search Center</th>
+                        <th data-field="lat" data-align="right" data-sortable="true">lat</th>
+                        <th data-field="long" data-align="right" data-sortable="true">long</th>
+                      </tr>-->
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<div id='map' style='display:none; width:100px; height:100px; '></div>
+    </body>
+</html>
