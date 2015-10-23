@@ -1,7 +1,7 @@
 ![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
-##Retrieve Photo Data from Flickr Using Flickr API - NIH Proposal for Food Environment
+##Google Places API
 ######*Project conducted by*: San Diego State University
-######*Report prepared by*: Yi-ting Chuang (Department of Geography, San Diego State University)
+######*Report prepared by*: Chin-Te (Calvin) Jung (Department of Geography, San Diego State University)
 
 ## Abstract
 
