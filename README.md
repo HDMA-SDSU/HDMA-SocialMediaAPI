@@ -14,20 +14,4 @@ This repository contains techical documents, exmaples, python codes of social me
 >
 >
 
-#### Folder Structure
-> 1) API-Facebook: Facebook API
->
-> 2) API-Locu: Locu API
->
-> 3) API-Yelp: Yelp API
->
-> 4) API-Flickr: Flickr API
->
-> 5) API-Instagram: Instagram API
->
-> 6) API-Twitter: Twitter API
->
-> 7) API-Youtube: Youtube API
->
-> 8) Integration API: We try to develop a search hub api of social media. Developers can import this API in their python and give relevant parameters to search data in above social media. 
->
+
