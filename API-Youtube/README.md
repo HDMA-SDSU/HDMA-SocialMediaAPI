@@ -1,6 +1,8 @@
-![](http://i.imgur.com/F2Tcxqi.jpg)
+![logo](http://humandynamics.sdsu.edu/images/HDMA_Logo.png)
+######*Project conducted by*: San Diego State University
+######*Content prepared by*: Qingyun Zhang @ San Diego State University
 
-*Technical Note:*
+---
 
 ##Working with the Youtube Data API##
 
