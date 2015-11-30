@@ -44,22 +44,13 @@ Once you have Python and the tweepy library installed, you are ready to search f
 The following codes demonstrates how to (1) setup the API Keys and (2) perform a search at the Twitter database.
 
 (1) setup your API keys with tweepy (credit to tweepy for this example (https://github.com/tweepy/tweepy/blob/master/examples/oauth.py) )
+
 '''python
 import tweepy
 
-# == OAuth Authentication ==
-#
-# This mode of authentication is the new preferred way
-# of authenticating with Twitter.
-
-# The consumer keys can be found on your application's Details
-# page located at https://dev.twitter.com/apps (under "OAuth settings")
 consumer_key=""
 consumer_secret=""
 
-# The access tokens can be found on your applications's Details
-# page located at https://dev.twitter.com/apps (located
-# under "Your access token")
 access_token=""
 access_token_secret=""
 
@@ -69,6 +60,3 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 '''
-
-
-
