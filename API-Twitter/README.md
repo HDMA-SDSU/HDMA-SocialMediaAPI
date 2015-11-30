@@ -43,7 +43,7 @@ Instructions of installing *tweepy* and its documentation can be found at https:
 Once you have Python and the tweepy library installed, you are ready to search for the tweets.
 The following codes demonstrates how to (1) setup the API Keys and (2) perform a search at the Twitter database.
 
-- (1) setup your API keys with tweepy (credit to tweepy for this example at: [*tweepy oauth example*](https://github.com/tweepy/tweepy/blob/master/examples/oauth.py) )
+- (1) setup your API keys with tweepy (credit to tweepy for this example at: [**tweepy oauth example**](https://github.com/tweepy/tweepy/blob/master/examples/oauth.py) )
 ```python
 import tweepy  # the Twitter API wrapper
 import json    # for processing the JSON return later
@@ -68,7 +68,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 ```
 
-- (2) Now that your endpoint is authenticated with your API keys, we can test the Search API.  Here we use a search for tweets containing the term *"coffee"* around *5 miles radius* from the center of *San Diego State University campus*.  For displaying, we will only search for *the latest tweet*.
+- (2) Now that your endpoint is authenticated with your API keys, we can test the Search API.  Here we use a search for tweets containing the term **"coffee"** around **5 miles radius** from the center of **San Diego State University campus**.  For displaying, we will only search for *the latest tweet*.
 
 ```python
 # Note: continue from the previous codes
@@ -83,7 +83,7 @@ results = api.search(q="coffee", geocode = "32.774575,-117.072404,5mi", count=1)
 print json.dumps(results, indent =4)
 ```
 
-- (3) Check out the return tweet! As you can see, the return contains many attributes that can be analyzed, such as **text**, **created_at**, and its location. (Note: some returned attributes are not displayed to cut down the size of the page)   
+- (3) Check out the return tweet! As you can see, the return contains many attributes that can be analyzed, such as *text*, *created_at*, and its *location*. (Note: some returned attributes are not displayed to cut down the size of the page)   
 
 ```json
 
@@ -229,3 +229,5 @@ print json.dumps(results, indent =4)
 
 For more information about the search parameters that can be used in your query,
 visit the official Twitter developer website at https://dev.twitter.com/
+
+Thank you for checking out our page.
