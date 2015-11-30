@@ -45,7 +45,7 @@ The following codes demonstrates how to (1) setup the API Keys and (2) perform a
 
 (1) setup your API keys with tweepy (credit to tweepy for this example (https://github.com/tweepy/tweepy/blob/master/examples/oauth.py) )
 
-'''python
+```python
 import tweepy
 
 consumer_key=""
@@ -59,4 +59,4 @@ auth.secure = True
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
-'''
+```
