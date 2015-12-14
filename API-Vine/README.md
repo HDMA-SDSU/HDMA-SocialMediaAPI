@@ -6,7 +6,7 @@
 #### Abstract
 The following report is to explain the Vine API, which introduces and allows developers to work with the Vine database to obtain information (location, username, subtext, etc.) about the specific uploaded content. From using and understanding the API information to using API methods to acquire user information/data. 
 
-#### 1.	What is Instagram?
+#### 1.	What is Vine?
 Vine is a mobile short-clip video sharing service which is giving the users an opportunity to record and share a six-second-long looping video clip. The general users of this application use it as a form of entertainment for their viewers (or followers). This app is not limited to just an entertainment service. https://en.wikipedia.org/wiki/Vine_(service)
 
 #### 2.	What is Vine API?
