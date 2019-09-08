@@ -1,4 +1,4 @@
-![logo](https://humandynamics.sdsu.edu/images/HDMA_Logo.png)
+![logo](https://humandynamics.sdsu.edu/images/Crime-records.png)
 
 https://humandynamics.sdsu.edu/images/HDMA_Logo.png
 
