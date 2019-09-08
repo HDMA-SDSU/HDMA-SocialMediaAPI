@@ -1,6 +1,6 @@
-![logo](https://humandynamics.sdsu.edu/images/Crime-records.png)
+![logo](https://humandynamics.sdsu.edu/images/SDSU_3Color-small.gif)
 
-https://humandynamics.sdsu.edu/images/HDMA_Logo.png
+https://humandynamics.sdsu.edu/images/SDSU_3Color-small.gif
 
 ##Social Media API
 ######*Project conducted by*: San Diego State University
